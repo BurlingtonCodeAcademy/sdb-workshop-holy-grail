@@ -1,0 +1,72 @@
+/* -------------------- Uses grid -------------------- */
+/* https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-area */
+
+body {
+  margin: auto;
+
+  text-align: center;
+
+  /* defines the entire body of the webpage as a grid */
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+
+  /* define the sizes of our columns */
+  grid-template-columns: 2fr 5fr 2fr;
+
+  /* define the sizes of our rows */
+  grid-template-rows: 1fr 3fr 1fr;
+
+  min-height: 100vh;
+}
+
+/*-------------------- Header --------------------*/
+header {
+  border: 1px solid greenyellow;
+  /* grid areas need to be defined to be used in grid-template-areas; you can match the html tag for clarity or use something completely different, like `dinosaur` */
+  grid-area: header;
+}
+
+/*-------------------- Main Content --------------------*/
+
+nav {
+  border: 5px double blue;
+  grid-area: nav;
+}
+
+main {
+  border: 2px dotted violet;
+  grid-area: main;
+}
+
+aside {
+  border: 1px solid rebeccapurple;
+  grid-area: aside;
+}
+
+/*-------------------- Footer --------------------*/
+footer {
+  border: 1px solid red;
+  grid-area: footer;
+}
+
+/* -------------------- Responsive -------------------- */
+/* 768px is the standard size of a tablet; this will adjust the layout for anything smaller than 768 */
+@media (max-width: 768px) {
+  body {
+    /* we move from 3 rows and 3 columns to 4 rows and 2 columns */
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "main aside"
+      "footer footer";
+    grid-template-rows:
+      auto /*header*/
+      minmax(75px, auto) /*nav*/
+      1fr /*main and aside*/
+      auto /*footer*/;
+    grid-template-columns: 2fr 1fr;
+  }
+}

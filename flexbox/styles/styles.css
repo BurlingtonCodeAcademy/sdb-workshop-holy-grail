@@ -1,0 +1,55 @@
+/* -------------------- Uses flexbox -------------------- */
+/* https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/ */
+
+body {
+  margin: auto;
+  /* defines the entire body of the webpage as a flexbox */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+}
+
+/* -------------------- Header -------------------- */
+header {
+  border: 1px solid orange;
+}
+
+/* -------------------- Main Content -------------------- */
+#holygrail-body {
+  /* defines the main content of the webpage as a second flexbox */
+  display: flex;
+  flex-direction: row;
+  /* nifty trick to get body to fill up the page and stick footer at the bottom */
+  flex: 1;
+}
+
+nav {
+  border: 1px solid chartreuse;
+  /*the flex property takes the following values
+          flex: flex-grow flex-shrink flex-basis*/
+  /* flex-grow: how much space will this portion take up relative to other elements in flex? It acts kind of like `fr` */
+  /* A number specifying how much the item will grow relative to the rest of the flexible items */
+  flex: 1;
+}
+
+main {
+  border: 1px solid purple;
+  flex: 2;
+}
+
+aside {
+  border: 1px solid blue;
+  flex: 1;
+}
+/* -------------------- Footer -------------------- */
+footer {
+  border: 1px solid red;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 768px) {
+  #holygrail-body {
+    flex-direction: column;
+  }
+}
